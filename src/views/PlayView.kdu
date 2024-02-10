@@ -1,0 +1,32 @@
+<template>
+  <div class="content">
+    <a href="<schema>://" class="btn"><fml-icon name="open-outline" /> Open in app</a>
+  </div>
+</template>
+
+<style scoped>
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background: #03a9f4;
+  color: #fff;
+  display: inline-flex;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 1.1em;
+  margin: 5px 20px 5px 0;
+  border-radius: 5px;
+}
+.btn:hover {
+  background: #2d88ff;
+}
+.btn fml-icon {
+  margin-right: 10px;
+  font-size: 1.4em;
+}
+</style>

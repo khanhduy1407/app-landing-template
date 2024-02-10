@@ -1,0 +1,21 @@
+{
+  "name": "app-landing-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wite",
+    "build": "wite build",
+    "preview": "wite preview",
+    "deploy": "npm run build && firebase deploy"
+  },
+  "dependencies": {
+    "kdu": "^3.3.4",
+    "kdu-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@witejs/plugin-kdu": "^4.2.3",
+    "@witejs/plugin-kdu-jsx": "^3.0.1",
+    "wite": "^4.5.0"
+  }
+}

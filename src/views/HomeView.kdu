@@ -1,0 +1,33 @@
+<script setup>
+import { ref } from 'kdu';
+
+import ContentBx from '../components/ContentBx.kdu'
+import Sci from '../components/Sci.kdu';
+
+const imgSrc = ref([
+  { url: "preview_1.png" },
+  { url: "preview_2.png" },
+  { url: "preview_3.png" },
+  { url: "preview_4.png" },
+]);
+
+const urls = ref([
+  { link: "mailto:example@gmail.com", icon: "mail-open" },
+  { link: "https://www.facebook.com/", icon: "logo-facebook" },
+  { link: "https://github.com/", icon: "logo-github" },
+]);
+</script>
+
+<template>
+  <ContentBx
+    appName="App Name"
+    description="App short descripttion"
+    playStoreLink="#"
+    appleStoreLink="#"
+    :imgSrc="imgSrc"
+  />
+
+  <Sci
+    :urls="urls"
+  />
+</template>

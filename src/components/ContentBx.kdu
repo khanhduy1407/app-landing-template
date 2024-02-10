@@ -1,0 +1,88 @@
+<script setup>
+import ImgBx from './ImgBx.kdu'
+
+defineProps({
+  appName: String,
+  description: String,
+  playStoreLink: String,
+  appleStoreLink: String,
+  imgSrc: {
+    type: Array,
+    required: true,
+  },
+})
+</script>
+
+<template>
+  <div class="contentBx">
+    <div class="text">
+      <h2>{{ appName }}</h2>
+      <p>{{ description }}</p>
+      <h4>Download the app</h4>
+      <a k-if="playStoreLink" :href="playStoreLink" class="btn"><fml-icon name="logo-google-playstore" /> Play Store</a>
+      <a k-if="appleStoreLink" :href="appleStoreLink" class="btn"><fml-icon name="logo-apple" /> Apple Store</a>
+    </div>
+
+    <ImgBx
+      :imgSrc="imgSrc"
+    />
+  </div>
+</template>
+
+<style scoped>
+.contentBx {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contentBx .text {
+  max-width: 700px;
+}
+.contentBx .text h2 {
+  font-size: 4em;
+  color: #03a9f4;
+}
+.contentBx .text p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.8em;
+}
+.contentBx .text h4 {
+  margin: 20px 0;
+  font-weight: 700;
+  color: #333;
+}
+
+.btn {
+  background: #03a9f4;
+  color: #fff;
+  display: inline-flex;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 1.1em;
+  margin: 5px 20px 5px 0;
+  border-radius: 5px;
+}
+.btn:hover {
+  background: #2d88ff;
+}
+.btn fml-icon {
+  margin-right: 10px;
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 991px) {
+  .contentBx {
+    flex-direction: column-reverse;
+    margin: 100px 0;
+  }
+  .contentBx .text {
+    text-align: center;
+  }
+  .contentBx .text h2 {
+    font-size: 3em;
+  }
+}
+</style>

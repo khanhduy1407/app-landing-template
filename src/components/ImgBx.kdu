@@ -1,0 +1,92 @@
+<script setup>
+import { ref } from 'kdu';
+
+const isActive = ref(0);
+
+defineProps({
+  imgSrc: {
+    type: Array,
+    required: true,
+  },
+})
+
+const handleDotClick = (index) => {
+  isActive.value = index;
+};
+</script>
+
+<template>
+  <div class="dots">
+    <template k-for="(_, index) in imgSrc" :key="index">
+      <span
+        :class="'dot' + (index === isActive ? ' active' : '')"
+        @click="handleDotClick(index)"
+      />
+    </template>
+  </div>
+
+  <div class="imgBx">
+    <template k-for="(img, index) in imgSrc" :key="index">
+      <img :src="img.url" :class="'slides' + (index === isActive ? ' active' : '')" />
+    </template>
+  </div>
+</template>
+
+<style scoped>
+.dots {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+}
+.dots .dot {
+  position: relative;
+  width: 10px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  margin: 5px;
+  cursor: pointer;
+}
+.dots .dot.active {
+  background: #fff;
+}
+
+.imgBx img {
+  margin-left: 50px;
+  margin-right: 100px;
+  max-width: 300px;
+  display: none;
+}
+.imgBx img.active {
+  display: block;
+}
+
+@media screen and (max-width: 991px) {
+  .imgBx img {
+    margin: 0;
+  }
+
+  .dots {
+    position: relative;
+    top: initial;
+    transform: none;
+    right: initial;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+  }
+  .dots .dot {
+    width: 25px;
+    height: 10px;
+    background: #03a9f4;
+    opacity: 0.2;
+  }
+  .dots .dot.active {
+    background: #03a9f4;
+    opacity: 1;
+  }
+}
+</style>

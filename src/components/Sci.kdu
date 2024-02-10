@@ -1,0 +1,45 @@
+<script setup>
+defineProps({
+  urls: {
+    link: String,
+    icon: String,
+  },
+})
+</script>
+
+<template>
+  <ul class="sci">
+    <li k-for="url in urls">
+      <a :href="url.link" target="_blank"><fml-icon :name="url.icon" /></a>
+    </li>
+  </ul>
+</template>
+
+<style scoped>
+.sci {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+}
+.sci li {
+  list-style: none;
+  margin-right: 20px;
+}
+.sci li a {
+  font-size: 1.8em;
+  color: #03a9f4;
+}
+.sci li a:hover {
+  color: #2d88ff;
+}
+
+@media screen and (max-width: 991px) {
+  .sci {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+</style>

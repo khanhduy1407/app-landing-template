@@ -1,0 +1,92 @@
+<script setup>
+import { RouterLink } from 'kdu-router';
+
+defineProps({
+  logoSrc: String,
+  issueRepo: String,
+})
+</script>
+
+<template>
+  <header>
+    <a href="#" class="logo">
+      <img :src="logoSrc" alt="logo" />
+    </a>
+
+    <ul>
+      <li><RouterLink to="/">Home</RouterLink></li>
+      <li><RouterLink to="/play">Play</RouterLink></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a :href="'https://github.com/' + issueRepo + '/issues/new'" target="_blank">Issues</a></li>
+    </ul>
+
+    <a href="#" class="app"><fml-icon name="download-outline" />Download App</a>
+  </header>
+</template>
+
+<style scoped>
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+header .logo img {
+  max-width: 50px;
+  margin-right: 20px;
+}
+
+header ul {
+  display: flex;
+}
+header ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+header ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+header ul li a:hover,
+header ul li a.router-link-active.router-link-exact-active {
+  color: #03a9f4;
+}
+
+.app {
+  position: absolute;
+  right: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #03a9f4;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.app:hover {
+  background: #2d88ff;
+  color: #fff;
+}
+.app fml-icon {
+  margin-right: 10px;
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 991px) {
+  header {
+    padding: 30px;
+    justify-content: space-between;
+  }
+
+  .app {
+    display: none;
+  }
+}
+</style>

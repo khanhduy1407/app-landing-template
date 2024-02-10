@@ -1,0 +1,33 @@
+<script setup>
+import Header from './components/Header.kdu'
+import { RouterView } from 'kdu-router';
+</script>
+
+<template>
+  <section class="main">
+    <Header
+      logoSrc="/logo.png"
+      issueRepo="owner/repo"
+    />
+
+    <RouterView />
+  </section>
+</template>
+
+<style scoped>
+.main {
+  position: relative;
+  background: linear-gradient(120deg, #FFF, #FFF 62%, #03a9f4 62%, #03a9f4 100%);
+  min-height: 100vh;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+  .main {
+    padding: 30px;
+    background: #fff;
+  }
+}
+</style>
